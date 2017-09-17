@@ -1,6 +1,10 @@
 package com.company;
 
+import java.io.IOException;
 import java.util.Scanner;
+
+import static com.company.TelematicsService.report;
+
 
 public class Main {
 
@@ -26,8 +30,13 @@ public class Main {
         System.out.println("Please enter your vehicle's engine size in liters:");
         newCar.setEngineSizeInLiters(userInput.nextDouble());
 
+        try {
+            report(newCar);
+        }
+        catch (IOException error) {
+            error.printStackTrace();
+        }
 
-        
 
 
 
