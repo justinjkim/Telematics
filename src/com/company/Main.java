@@ -3,6 +3,7 @@ package com.company;
 import java.io.IOException;
 import java.util.Scanner;
 
+import static com.company.TelematicsService.convertToJava;
 import static com.company.TelematicsService.report;
 
 
@@ -32,6 +33,7 @@ public class Main {
 
         try {
             report(newCar);
+            convertToJava();
         }
         catch (IOException error) {
             error.printStackTrace();
