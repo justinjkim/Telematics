@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class TelematicsService {
 
-    static void report(VehicleInfo vehicleInfo) throws IOException {
+    static void report(VehicleInfo vehicleInfo) throws IOException{ // need to understand why throwing IO exception here works
 
         ObjectMapper mapper = new ObjectMapper();
         int VIN = vehicleInfo.getVIN();
