@@ -33,13 +33,13 @@ public class TelematicsService {
                 System.out.println(vi);
             }
         }
-
-
-
-
     }
 
-
+    public static void updateDashboard() {
+        double avgOdometer;
+        double avgConsumption;
+        double avgLastOilChange;
+    }
 
 
 
