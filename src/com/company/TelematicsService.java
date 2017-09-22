@@ -82,7 +82,10 @@ public class TelematicsService {
                         "</tr> " +
                         "<tr> " +
                         // these are the actual values I need to change
-                        "<td align=\"center\">AverageODOMETER</td><td align=\"center\">AverageCONSUMPTION</td><td align=\"center\">AverageLASTOILCHANGE</td align=\"center\"><td align=\"center\">AverageENGINESIZE</td> " +
+                        "<td align=\"center\">AverageODOMETER</td>" +
+                        "<td align=\"center\">AverageCONSUMPTION</td>" +
+                        "<td align=\"center\">AverageLASTOILCHANGE</td align=\"center\">" +
+                        "<td align=\"center\">AverageENGINESIZE</td> " +
                         "</tr> " +
                         "</table> ";
 
@@ -91,6 +94,10 @@ public class TelematicsService {
         ;
 
         avgHTML = avgHTML.replace("AverageODOMETER", String.valueOf(avgOdometer));
+        avgHTML = avgHTML.replace("AverageCONSUMPTION", String.valueOf(avgConsumption));
+        avgHTML = avgHTML.replace("AverageLASTOILCHANGE", String.valueOf(avgLastOilChange));
+        avgHTML = avgHTML.replace("AverageENGINESIZE", String.valueOf(avgEngineSize));
+
 
         // test to see if HTML is actually changed
         System.out.println(avgHTML);
