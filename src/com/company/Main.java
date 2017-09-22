@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import static com.company.TelematicsService.convertToJava;
 import static com.company.TelematicsService.report;
-import static com.company.TelematicsService.updateDashboard;
+
 
 
 public class Main {
@@ -39,7 +39,7 @@ public class Main {
         try {
             report(newCar);
             convertToJava();
-            updateDashboard(vehicles);
+
 
         }
         catch (IOException error) {
