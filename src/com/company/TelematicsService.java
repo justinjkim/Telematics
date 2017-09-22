@@ -76,7 +76,7 @@ public class TelematicsService {
                         "</tr> " +
                         "<tr> " +
                         // these are the actual values I need to change
-                        "<td align=\"center\">#</td><td align=\"center\">#</td><td align=\"center\">#</td align=\"center\"><td align=\"center\">#</td> " +
+                        "<td align=\"center\">AverageODOMETER</td><td align=\"center\">AverageCONSUMPTION</td><td align=\"center\">AverageLASTOILCHANGE</td align=\"center\"><td align=\"center\">AverageENGINESIZE</td> " +
                         "</tr> " +
                         "</table> ";
 
