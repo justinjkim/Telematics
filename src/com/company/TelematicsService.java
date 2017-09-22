@@ -9,6 +9,8 @@ import java.util.List;
 
 public class TelematicsService {
 
+    List<VehicleInfo> vehicles = new ArrayList<>(); // putting this outside the methods to initialize it
+
     public static void report(VehicleInfo vehicleInfo) throws IOException{ // need to understand why throwing IO exception here works
 
         ObjectMapper mapper = new ObjectMapper();
@@ -53,6 +55,13 @@ public class TelematicsService {
             avgConsumption += vehicle.getConsumption();
             avgLastOilChange += vehicle.getOdometerSinceLastOilChange();
         }
+
+        System.out.println(vehicles);
+
+        System.out.println("Averages:");
+        System.out.println(avgOdometer);
+        System.out.println(avgConsumption);
+        System.out.println(avgLastOilChange);
 
         updatedHTML +=
                 "<html>" + "<title>Vehicle Telematics Dashboard</title> " +
