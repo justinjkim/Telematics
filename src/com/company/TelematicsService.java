@@ -39,7 +39,6 @@ public class TelematicsService {
                 vehicles.add(vi);
             }
         }
-        System.out.println(vehicles);
 
 
         // FOR NOW, I MOVED THE UPDATEDASHBOARD() METHOD TO WITHIN THE CONVERTTOJAVA() METHOD
@@ -51,8 +50,6 @@ public class TelematicsService {
         String individualHTML = "";
         String avgHTML = "";
         String finalHTML = "";
-
-
 
         for (VehicleInfo vehicle: vehicles) {
             avgOdometer += vehicle.getOdometer();
@@ -73,6 +70,7 @@ public class TelematicsService {
         System.out.println(avgOdometer);
         System.out.println(avgConsumption);
         System.out.println(avgLastOilChange);
+        System.out.println(avgEngineSize);
 
         avgHTML +=
                 "<html>" + "<title>Vehicle Telematics Dashboard</title> " +
@@ -90,6 +88,12 @@ public class TelematicsService {
 
         // testing to see if I can output avgHTML by itself;
         //System.out.println(avgHTML);
+        ;
+
+        avgHTML = avgHTML.replace("AverageODOMETER", String.valueOf(avgOdometer));
+
+        // test to see if HTML is actually changed
+        System.out.println(avgHTML);
 
 
         individualHTML +=
