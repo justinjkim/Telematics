@@ -102,7 +102,7 @@ public class TelematicsService {
         avgHTML = avgHTML.replace("AverageLASTOILCHANGE", String.valueOf(avgLastOilChange));
         avgHTML = avgHTML.replace("AverageENGINESIZE", String.valueOf(avgEngineSize));
 
-        
+
         individualHTML +=
                 "<h1 align=\"center\">History</h1> " +
                         "<table align=\"center\" border=\"1\"> " +
@@ -112,24 +112,23 @@ public class TelematicsService {
                         "<th>Consumption (gallons)</th>" +
                         "<th>Last Oil Change</th>" +
                         "<th>Engine Size (liters)</th> " +
-                        "</tr> " +
+                        "</tr> ";
+
+
                         // actual values I need to change
+        for (VehicleInfo vehicle: vehicles) {
+            individualHTML +=
                         "<tr> " +
-                        "<td align=\"center\">EachVIN</td>" +
-                        "<td align=\"center\">EachODOMETER</td>" +
-                        "<td align=\"center\">EachCONSUMPTION</td>" +
-                        "<td align=\"center\">EachLASTOILCHANGE</td align=\"center\">" +
-                        "<td align=\"center\">EachENGINESIZE</td> " +
-                        "</tr> " +
-                        "<tr> " +
-                        // what the heck is this row below? pre-populated info?
-                        "<td align=\"center\">45435</td>" +
-                        "<td align=\"center\">123</td>" +
-                        "<td align=\"center\">234</td>" +
-                        "<td align=\"center\">345</td align=\"center\">" +
-                        "<td align=\"center\">4.5</td> " +
-                        "</tr> " +
-                        "</table> " +
+                            "<td align=\"center\">" + String.valueOf(vehicle.getVIN()) + "</td>" +
+                            "<td align=\"center\">" + String.valueOf(vehicle.getOdometer()) + "</td>" +
+                            "<td align=\"center\">" + String.valueOf(vehicle.getConsumption()) + "</td>" +
+                            "<td align=\"center\">" + String.valueOf(vehicle.getOdometerSinceLastOilChange()) + "</td>" +
+                            "<td align=\"center\">" + String.valueOf(vehicle.getEngineSizeInLiters()) + "</td>" +
+                            "</tr>";
+
+        }
+
+        individualHTML += "</table> " +
                         "</body> " +
                         "</html>";
 
