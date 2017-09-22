@@ -9,11 +9,10 @@ import static com.company.TelematicsService.convertToJava;
 import static com.company.TelematicsService.report;
 
 
-
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
         Scanner userInput = new Scanner(System.in);
 
         VehicleInfo newCar = new VehicleInfo();
@@ -40,16 +39,9 @@ public class Main {
             report(newCar);
             convertToJava();
 
-
-        }
-        catch (IOException error) {
+        } catch (IOException error) {
             error.printStackTrace();
         }
-
-
-
-
-
 
     }
 }

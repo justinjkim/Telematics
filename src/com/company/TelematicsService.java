@@ -102,10 +102,7 @@ public class TelematicsService {
         avgHTML = avgHTML.replace("AverageLASTOILCHANGE", String.valueOf(avgLastOilChange));
         avgHTML = avgHTML.replace("AverageENGINESIZE", String.valueOf(avgEngineSize));
 
-
-
-
-
+        
         individualHTML +=
                 "<h1 align=\"center\">History</h1> " +
                         "<table align=\"center\" border=\"1\"> " +
@@ -145,8 +142,6 @@ public class TelematicsService {
         }
 
         finalHTML = avgHTML + individualHTML;
-
-        System.out.println(finalHTML);
 
         File finalFile = new File("dashboard.html");
         FileWriter filewriter = new FileWriter(finalFile);
