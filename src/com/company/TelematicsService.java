@@ -3,6 +3,7 @@ package com.company;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -102,6 +103,9 @@ public class TelematicsService {
         avgHTML = avgHTML.replace("AverageENGINESIZE", String.valueOf(avgEngineSize));
 
 
+
+
+
         individualHTML +=
                 "<h1 align=\"center\">History</h1> " +
                         "<table align=\"center\" border=\"1\"> " +
@@ -112,14 +116,16 @@ public class TelematicsService {
                         "<th>Last Oil Change</th>" +
                         "<th>Engine Size (liters)</th> " +
                         "</tr> " +
+                        // actual values I need to change
                         "<tr> " +
-                        "<td align=\"center\">#</td>" +
-                        "<td align=\"center\">#</td>" +
-                        "<td align=\"center\">#</td>" +
-                        "<td align=\"center\">#</td align=\"center\">" +
-                        "<td align=\"center\">#</td> " +
+                        "<td align=\"center\">EachVIN</td>" +
+                        "<td align=\"center\">EachODOMETER</td>" +
+                        "<td align=\"center\">EachCONSUMPTION</td>" +
+                        "<td align=\"center\">EachLASTOILCHANGE</td align=\"center\">" +
+                        "<td align=\"center\">EachENGINESIZE</td> " +
                         "</tr> " +
                         "<tr> " +
+                        // what the heck is this row below? pre-populated info?
                         "<td align=\"center\">45435</td>" +
                         "<td align=\"center\">123</td>" +
                         "<td align=\"center\">234</td>" +
@@ -130,8 +136,23 @@ public class TelematicsService {
                         "</body> " +
                         "</html>";
 
+        for (VehicleInfo vehicle : vehicles) {
+            individualHTML = individualHTML.replace("EachVIN", String.valueOf(vehicle.getVIN()));
+            individualHTML = individualHTML.replace("EachODOMETER", String.valueOf(vehicle.getOdometer()));
+            individualHTML = individualHTML.replace("EachCONSUMPTION", String.valueOf(vehicle.getConsumption()));
+            individualHTML = individualHTML.replace("EachLASTOILCHANGE", String.valueOf(vehicle.getOdometerSinceLastOilChange()));
+            individualHTML = individualHTML.replace("EachENGINESIZE", String.valueOf(vehicle.getEngineSizeInLiters()));
+        }
+
+        finalHTML = avgHTML + individualHTML;
+
+        System.out.println(finalHTML);
 
         File finalFile = new File("dashboard.html");
+        FileWriter filewriter = new FileWriter(finalFile);
+        filewriter.write(finalHTML);
+        filewriter.flush();
+        filewriter.close();
 
     }
 
