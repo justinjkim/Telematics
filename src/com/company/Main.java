@@ -1,10 +1,13 @@
 package com.company;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import static com.company.TelematicsService.convertToJava;
 import static com.company.TelematicsService.report;
+import static com.company.TelematicsService.updateDashboard;
 
 
 public class Main {
@@ -31,9 +34,13 @@ public class Main {
         System.out.println("Please enter your vehicle's engine size in liters:");
         newCar.setEngineSizeInLiters(userInput.nextDouble());
 
+        //List<VehicleInfo> vehicles = new ArrayList<>();
+
         try {
             report(newCar);
             convertToJava();
+            updateDashboard(vehicles);
+
         }
         catch (IOException error) {
             error.printStackTrace();
