@@ -44,12 +44,12 @@ public class TelematicsService {
 
         // FOR NOW, I MOVED THE UPDATEDASHBOARD() METHOD TO WITHIN THE CONVERTTOJAVA() METHOD
 
-
+        double avgOdometer = 0;
         double avgConsumption = 0;
         double avgLastOilChange = 0;
         String updatedHTML = "";
 
-        File file = new File("dashboard.html");
+
 
         for (VehicleInfo vehicle: vehicles) {
             avgOdometer += vehicle.getOdometer();
@@ -94,12 +94,11 @@ public class TelematicsService {
 
 
 
-
+        File finalFile = new File("dashboard.html");
 
     }
 
-   // public static void updateDashboard(List<VehicleInfo> vehicles) {
-        double avgOdometer = 0;
+
 
 
 
