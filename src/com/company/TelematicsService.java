@@ -47,7 +47,9 @@ public class TelematicsService {
         double avgOdometer = 0;
         double avgConsumption = 0;
         double avgLastOilChange = 0;
-        String updatedHTML = "";
+        String topHTML = "";
+        String avgHTML = "";
+        String finalHTML = "";
 
 
 
@@ -64,7 +66,7 @@ public class TelematicsService {
         System.out.println(avgConsumption);
         System.out.println(avgLastOilChange);
 
-        updatedHTML +=
+        topHTML +=
                 "<html>" + "<title>Vehicle Telematics Dashboard</title> " +
                         "<body> " +
                         "<h1 align=\"center\">Averages for # vehicles</h1> " +
@@ -75,7 +77,10 @@ public class TelematicsService {
                         "<tr> " +
                         "<td align=\"center\">#</td><td align=\"center\">#</td><td align=\"center\">#</td align=\"center\"><td align=\"center\">#</td> " +
                         "</tr> " +
-                        "</table> " +
+                        "</table> ";
+
+
+        avgHTML +=
                         "<h1 align=\"center\">History</h1> " +
                         "<table align=\"center\" border=\"1\"> " +
                         "<tr> " +
