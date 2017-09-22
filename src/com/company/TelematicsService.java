@@ -47,6 +47,7 @@ public class TelematicsService {
         double avgOdometer = 0;
         double avgConsumption = 0;
         double avgLastOilChange = 0;
+        double avgEngineSize = 0;
         String individualHTML = "";
         String avgHTML = "";
         String finalHTML = "";
@@ -57,7 +58,14 @@ public class TelematicsService {
             avgOdometer += vehicle.getOdometer();
             avgConsumption += vehicle.getConsumption();
             avgLastOilChange += vehicle.getOdometerSinceLastOilChange();
+            avgEngineSize += vehicle.getEngineSizeInLiters();
         }
+
+        avgOdometer = avgOdometer / vehicles.size();
+        avgConsumption = avgConsumption / vehicles.size();
+        avgLastOilChange = avgLastOilChange / vehicles.size();
+        avgEngineSize = avgEngineSize / vehicles.size();
+
 
         System.out.println(vehicles);
 
@@ -79,6 +87,9 @@ public class TelematicsService {
                         "<td align=\"center\">AverageODOMETER</td><td align=\"center\">AverageCONSUMPTION</td><td align=\"center\">AverageLASTOILCHANGE</td align=\"center\"><td align=\"center\">AverageENGINESIZE</td> " +
                         "</tr> " +
                         "</table> ";
+
+        // testing to see if I can output avgHTML by itself;
+        //System.out.println(avgHTML);
 
 
         individualHTML +=
