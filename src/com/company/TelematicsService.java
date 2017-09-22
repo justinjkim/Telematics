@@ -11,7 +11,7 @@ public class TelematicsService {
 
     List<VehicleInfo> vehicles = new ArrayList<>(); // putting this outside the methods to initialize it
 
-    public static void report(VehicleInfo vehicleInfo) throws IOException{ // need to understand why throwing IO exception here works
+    public static void report(VehicleInfo vehicleInfo) throws IOException { // need to understand why throwing IO exception here works
 
         ObjectMapper mapper = new ObjectMapper();
 
@@ -24,7 +24,9 @@ public class TelematicsService {
         // test to make sure json is formatted properly
         String json = mapper.writeValueAsString(vehicleInfo);
         System.out.println(json);
-    };
+    }
+
+    ;
 
     public static void convertToJava() throws IOException {
         List<VehicleInfo> vehicles = new ArrayList<>();
@@ -51,7 +53,7 @@ public class TelematicsService {
         String avgHTML = "";
         String finalHTML = "";
 
-        for (VehicleInfo vehicle: vehicles) {
+        for (VehicleInfo vehicle : vehicles) {
             avgOdometer += vehicle.getOdometer();
             avgConsumption += vehicle.getConsumption();
             avgLastOilChange += vehicle.getOdometerSinceLastOilChange();
@@ -66,19 +68,23 @@ public class TelematicsService {
 
         System.out.println(vehicles);
 
-        System.out.println("Averages:");
-        System.out.println(avgOdometer);
-        System.out.println(avgConsumption);
-        System.out.println(avgLastOilChange);
-        System.out.println(avgEngineSize);
+//        System.out.println("Averages:");
+//        System.out.println(avgOdometer);
+//        System.out.println(avgConsumption);
+//        System.out.println(avgLastOilChange);
+//        System.out.println(avgEngineSize);
 
         avgHTML +=
-                "<html>" + "<title>Vehicle Telematics Dashboard</title> " +
+                "<html>" +
+                        "<title>Vehicle Telematics Dashboard</title> " +
                         "<body> " +
                         "<h1 align=\"center\">Averages for # vehicles</h1> " +
                         "<table align=\"center\"> " +
                         "<tr> " +
-                        "<th>Odometer (miles) |</th><th>Consumption (gallons) |</th><th>Last Oil Change |</th><th>Engine Size (liters)</th>" +
+                        "<th>Odometer (miles) |</th>" +
+                        "<th>Consumption (gallons) |</th>" +
+                        "<th>Last Oil Change |</th>" +
+                        "<th>Engine Size (liters)</th>" +
                         "</tr> " +
                         "<tr> " +
                         // these are the actual values I need to change
@@ -89,9 +95,6 @@ public class TelematicsService {
                         "</tr> " +
                         "</table> ";
 
-        // testing to see if I can output avgHTML by itself;
-        //System.out.println(avgHTML);
-        ;
 
         avgHTML = avgHTML.replace("AverageODOMETER", String.valueOf(avgOdometer));
         avgHTML = avgHTML.replace("AverageCONSUMPTION", String.valueOf(avgConsumption));
@@ -99,27 +102,33 @@ public class TelematicsService {
         avgHTML = avgHTML.replace("AverageENGINESIZE", String.valueOf(avgEngineSize));
 
 
-        // test to see if HTML is actually changed
-        System.out.println(avgHTML);
-
-
         individualHTML +=
-                        "<h1 align=\"center\">History</h1> " +
+                "<h1 align=\"center\">History</h1> " +
                         "<table align=\"center\" border=\"1\"> " +
                         "<tr> " +
-                        "<th>VIN</th><th>Odometer (miles)</th><th>Consumption (gallons)</th><th>Last Oil Change</th><th>Engine Size (liters)</th> " +
+                        "<th>VIN</th>" +
+                        "<th>Odometer (miles)</th>" +
+                        "<th>Consumption (gallons)</th>" +
+                        "<th>Last Oil Change</th>" +
+                        "<th>Engine Size (liters)</th> " +
                         "</tr> " +
                         "<tr> " +
-                        "<td align=\"center\">#</td><td align=\"center\">#</td><td align=\"center\">#</td><td align=\"center\">#</td align=\"center\"><td align=\"center\">#</td> " +
+                        "<td align=\"center\">#</td>" +
+                        "<td align=\"center\">#</td>" +
+                        "<td align=\"center\">#</td>" +
+                        "<td align=\"center\">#</td align=\"center\">" +
+                        "<td align=\"center\">#</td> " +
                         "</tr> " +
                         "<tr> " +
-                        "<td align=\"center\">45435</td><td align=\"center\">123</td><td align=\"center\">234</td><td align=\"center\">345</td align=\"center\"><td align=\"center\">4.5</td> " +
+                        "<td align=\"center\">45435</td>" +
+                        "<td align=\"center\">123</td>" +
+                        "<td align=\"center\">234</td>" +
+                        "<td align=\"center\">345</td align=\"center\">" +
+                        "<td align=\"center\">4.5</td> " +
                         "</tr> " +
                         "</table> " +
                         "</body> " +
                         "</html>";
-
-
 
 
         File finalFile = new File("dashboard.html");
@@ -127,13 +136,7 @@ public class TelematicsService {
     }
 
 
-
-
-
-
-   // }
-
-
+    // }
 
 
 }
